@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<config>
+      <modules>
+        <Social_Linkedin>
+          <version>0.1.0</version>
+        </Social_Linkedin>
+      </modules>
+	  <frontend>
+      <routers>
+        <linkedin>
+          <use>standard</use>
+         <args>
+           <module>Social_Linkedin</module>
+           <frontName>linkedin</frontName>
+         </args>
+        </linkedin>
+      </routers>
+	  <layout>
+          <updates>
+              <linkedin>
+                  <file>linkedin.xml</file>
+              </linkedin>
+          </updates>
+      </layout>
+    </frontend>
+   <global>
+
+      <helpers>
+       <linkedin>
+           <class>Social_Linkedin_Helper</class>
+       </linkedin>
+      </helpers>   
+
+	  <blocks><linkedin><class>Social_Linkedin_Block</class></linkedin></blocks>
+					 <models>
+					<linkedin>
+						<class>Social_Linkedin_Model</class>
+						<resourceModel>linkedin_mysql4</resourceModel>
+					</linkedin>
+					<linkedin_mysql4>
+						<class>Social_Linkedin_Model_Mysql4</class>
+						<entities>
+							<client>
+								<table>tablename</table>
+							</client>
+						</entities>
+					</linkedin_mysql4>
+
+				</models>
+				   <resources>
+					<linkedin_setup>
+						<setup>
+							<module>Social_Linkedin</module>
+						</setup>
+						<connection>
+							<use>core_setup</use>
+						</connection>
+					</linkedin_setup>
+					<linkedin_write>
+						<connection>
+							<use>core_write</use>
+						</connection>
+					</linkedin_write>
+					<linkedin_read>
+						<connection>
+							<use>core_read</use>
+						</connection>
+					</linkedin_read>
+					
+				</resources>
+			 
+   </global> 
+   
+</config> 

@@ -1,0 +1,30 @@
+<?php
+$connector_name=  Mage::getModel('linkedin/client')->setConnectorName();
+$connectorname=strtolower($connector_name);
+?>
+<!-- BEGIN Connectors Linkedin Connect -->
+
+<script type="text/javascript">
+//<![CDATA[
+          
+        document.observe('click', function(e){
+        
+	var target = e.findElement('a[rel^=connect_Linkedin]') || e.findElement('button[rel^=connect_Linkedin]');
+	if (target && target.readAttribute('rel')=='connect_Linkedin') {
+		
+		var identityid = target.readAttribute('name');
+			//alert('<?php //echo Mage::getModel('linkedin/client')->getConnectorUrl($connectorname,'/index'); ?>'+'?mid='+identityid);	
+			
+		window.open('<?php echo Mage::getModel('linkedin/client')->getConnectorUrl($connectorname,'/index'); ?>'+'?mid='+identityid,'mywindow','width=500,height=400');
+		
+	}
+	var target = e.findElement('a[rel^=disconnect_Linkedin]') || e.findElement('button[rel^=disconnect_Linkedin]');
+	if (target && target.readAttribute('rel')=='disconnect_Linkedin') {
+		
+		var identityid = target.readAttribute('name');
+		setLocation('<?php echo Mage::getModel('linkedin/client')->getConnectorUrl($connectorname,'/index'); ?>'+'?data=true&mid='+identityid);
+				
+	}
+});
+//]]>
+</script>
