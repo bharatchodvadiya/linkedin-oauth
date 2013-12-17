@@ -1,1 +1,0 @@
-ant -buildfile social-connector-linkedin\social-connector-linkedin.xml -lib "C:\Program Files\java\apache-ant-1.8.2\lib\mysql-connector-java-5.1.18\mysql-connector-java-5.1.18-bin.jar" %1%
